@@ -16,8 +16,8 @@ export  const navigation = [
       target: '_blank'
      },
      ,
-    {name: "Draw",
-      link: '/draw',
+    {name: "SEE MORE",
+      link: '#project-top',
       target: ''
      },
     //  {name: "WordToPDF",

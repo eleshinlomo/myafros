@@ -107,6 +107,7 @@ export default function Projects() {
   return (
     <section 
       ref={sectionRef}
+      id='project-top'
       className="relative bg-gradient-to-b from-gray-900 to-black  overflow-hidden"
     >
       {/* Animated background elements */}

@@ -25,18 +25,18 @@ const Hero = () => {
   // Mouse position tracker for interactive effects
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      setMousePosition({ x: e?.clientX, y: e?.clientY });
     };
     
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    return () => window?.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   // Particle animation effect
   useEffect(() => {
-    if (!canvasRef.current) return;
+    if (!canvasRef?.current) return;
     
-    const canvas = canvasRef.current;
+    const canvas = canvasRef?.current;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     
@@ -104,7 +104,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative bg-black text-white min-h-screen overflow-hidden">
+    <div className="relative bg-black text-white min-h-screen overflow-hidden" id='hero-top'>
       {/* Animated background canvas */}
       <canvas 
         ref={canvasRef} 
@@ -167,7 +167,8 @@ const Hero = () => {
             {/* Buttons */}
             <div className="flex flex-col md:flex-row gap-4">
               <a 
-                href={`https://ai.fixupe.com`}
+                href={`https://fixupe.com/products`}
+                 target='_blank'
                 className="group relative overflow-hidden"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
@@ -180,7 +181,7 @@ const Hero = () => {
                   className="w-full md:w-auto relative bg-transparent border-none text-white rounded-full px-8 py-6 group-hover:scale-105 transition-transform duration-300"
                 >
                   <span className="relative z-10 flex items-center gap-2">
-                    <span>VOICE RECORDER</span>
+                    <span>PRODUCT MANAGER</span>
                     <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
@@ -189,7 +190,8 @@ const Hero = () => {
               </a>
               
               <a 
-                href={`https://ai.fixupe.com`}
+                href={`https://fixupe.com/videos`}
+                target='_blank'
                 className="group relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 group-hover:from-purple-700 group-hover:to-pink-700 transition-all duration-300 rounded-full" />
@@ -200,7 +202,7 @@ const Hero = () => {
                   className="w-full md:w-auto relative bg-transparent border-none text-white rounded-full px-8 py-6 group-hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/20 group-hover:shadow-purple-500/40"
                 >
                   <span className="relative z-10 flex items-center gap-2">
-                    <span>GENERATE IMAGE</span>
+                    <span>GENERATE VIRAL VIDEO</span>
                     <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
