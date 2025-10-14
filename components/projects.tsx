@@ -26,7 +26,7 @@ export default function Projects() {
       id: 3,
       title: "FIXUPE AI",
       description: "AI/Machine Learning Labs",
-      url: 'https://ai.myafros.com',
+      url: 'https://fixupe.com',
       icon: (
         <svg className="w-10 h-10 text-white" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
           <g fill="none" fillRule="evenodd">
