@@ -133,7 +133,7 @@ export default function Projects() {
                     </div>
                     
                     <div className="flex space-x-4 items-center">
-                      {project.githubUrl.private ? (
+                      {/* {project.githubUrl.private ? (
                         <button
                           onClick={handlePrivateGitRepo}
                           className="flex items-center space-x-2 text-slate-500 hover:text-slate-700 transition-colors"
@@ -152,7 +152,7 @@ export default function Projects() {
                           <Github className="w-5 h-5" />
                           <span>Code</span>
                         </a>
-                      )}
+                      )} */}
                       {project.liveUrl && (
                         <a
                           href={project.liveUrl}

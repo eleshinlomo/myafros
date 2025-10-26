@@ -80,7 +80,7 @@ export default function About() {
                   I believe in creating technology that not only works well but also 
                   makes a positive impact.
                 </p>
-                <p className='bg-blue-200 p-2'>
+                <p className='bg-blue-200 p-4 rounded-2xl'>
                   When I&apos;m not coding, you can find me contributing to open-source 
                   projects, reading research papers, or exploring new advancements 
                   in AI and software development and ofcourse I also play hard. Well, that is another story.
