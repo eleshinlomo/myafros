@@ -1,40 +1,23 @@
 'use client'
-
-import {useState, useEffect} from 'react'
-import HomeNavbar from '@/components/navbars/homenavbar'
-import Projects from '@/components/projects'
-import Features from '@/components/features'
-import TopSlanted from '@/components/topslanted'
-import ThreeColsTop from '@/components/threecolstop'
-import { Skillsets } from '@/components/skillsets'
-import Hero from '@/components/hero'
+import About from "@/components/sections/About";
+import Contact from "@/components/sections/Contacts";
+import Header from "@/components/sections/Header";
+import Hero from "@/components/sections/Hero";
+import Projects from "@/components/sections/Projects";
+import Skills from "@/components/sections/Skills";
 
 
+const Home = ()=> {
+  return (
+    <div className="min-h-screen">
+      <Header />
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Contact />
+    </div>
+  );
+}
 
-
-
-  const Home = () =>{
-
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
-    
-    return (
-      <div>
-        <HomeNavbar isLoggedIn={isLoggedIn} />
-      <div className='relative overflow-hidden flex flex-col justify-center'>
-        
-        <Hero />
-        <Skillsets />
-        <Projects />
-        <ThreeColsTop />
-        <TopSlanted />
-       <Features />
-      
-        {/* <NewsletterPage /> */}
-       
-        {/* <CookiePage /> */}
-      </div>
-      </div>
-    )
-  }
-
-  export default Home
+export default Home
