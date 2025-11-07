@@ -97,7 +97,7 @@ export default function Projects() {
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className={`bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all ${
+                className={`bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl overflow-hidden shadow-lg   ${
                   project.featured ? 'border-2 border-blue-200' : ''
                 }`}
                 initial={{ opacity: 0, y: 30 }}
@@ -158,7 +158,7 @@ export default function Projects() {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors"
+                          className="flex bg-blue-800 p-2 rounded-2xl  items-center space-x-2   transition-colors"
                         >
                           <ExternalLink className="w-5 h-5" />
                           <span>Live Demo</span>
@@ -181,7 +181,7 @@ export default function Projects() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.8 }}
           >
-            <button  className="bg-slate-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-slate-800 transition-all flex mx-auto items-center space-x-2 ">
+            <button  className="bg-slate-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-slate-800  flex mx-auto items-center space-x-2 ">
               <a href='https://github.com/eleshinlomo' target='_blank'>View All Projects</a>
               <ArrowRight className="w-5 h-5" />
             </button>
