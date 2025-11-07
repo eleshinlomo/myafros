@@ -30,7 +30,7 @@ const projects: Project[] = [
     longDescription: `AI-driven system for creating PRDs, features, and mock-ups. Processes documents using LLM and LLM-Function call that returns JSONs. Includes automated extraction, sentiment analysis based on project profile.`,
     technologies: ['Node.js', 'OpenAI APIs', 'React', 'REST', 'MongoDB', 'Ffmpeg', 'Google APIs'],
     githubUrl: { url: 'https://github.com', private: true },
-    liveUrl: 'https://fixupe.com/products',
+    liveUrl: 'https://product.fixupe.com/',
     image: '/api/placeholder/600/400',
     category: 'ai',
     featured: true
