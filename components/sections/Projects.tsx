@@ -44,7 +44,7 @@ Uses AI to accelerate content creation for product advertisements and short film
 Delivers fast storyboarding, automated editing, and quick video production.`,
     technologies: ['Python', 'Node.js', 'OpenAI APIs', 'React', 'REST', 'MongoDB', 'Ffmpeg', 'Google APIs', 'Redis', 'Docker'],
     githubUrl: { url: 'https://github.com', private: true },
-    liveUrl: 'https://fixupe.com/videos',
+    liveUrl: 'https://fixupe.com',
     image: '/api/placeholder/600/400',
     category: 'ai',
     featured: true
