@@ -70,7 +70,7 @@ export default function About() {
                 <p>
                   I&apos;m a Software and AI Engineer with 4+ years of experience building 
                   scalable applications and intelligent systems. My journey started from 
-                  building webpages with DREAMWEAVER, WYSWIG, HTML and CSS and evolved 
+                  building webpages with DREAMWEAVER, WYSWYG, HTML and CSS and evolved 
                   into a passion for software engineering, artificial intelligence 
                   and machine learning.
                 </p>

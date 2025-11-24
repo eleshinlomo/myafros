@@ -23,8 +23,22 @@ interface Project {
 }
 
 const projects: Project[] = [
-  {
+    {
     id: 1,
+    title: 'Movies and Video Ads Storyboard',
+    description: 'AI powered Video storyboard for movies and Ads',
+    longDescription: `Instant video ads and storyboard platform. 
+Uses AI to accelerate content creation for product advertisements and short films. 
+Delivers fast storyboarding, automated editing, and quick video production.`,
+    technologies: ['Python/Django', 'Next/Typescript', 'Node.js', 'OpenAI APIs', 'React', 'REST', 'MongoDB', 'Ffmpeg', 'Google APIs', 'Redis', 'Docker'],
+    githubUrl: { url: 'https://github.com', private: true },
+    liveUrl: 'https://fixupe.com',
+    image: '/api/placeholder/600/400',
+    category: 'ai',
+    featured: true
+  },
+  {
+    id: 2,
     title: 'PRD, Feature and Mock-up Creator',
     description: 'AI-powered product management platform',
     longDescription: `AI-driven system for creating PRDs, features, and mock-ups. Processes documents using LLM and LLM-Function call that returns JSONs. Includes automated extraction, sentiment analysis based on project profile.`,
@@ -35,20 +49,7 @@ const projects: Project[] = [
     category: 'ai',
     featured: true
   },
-  {
-    id: 2,
-    title: 'Movies and Video Ads Storyboard',
-    description: 'AI powered Video storyboard for movies and Ads',
-    longDescription: `Instant video ads and storyboard platform. 
-Uses AI to accelerate content creation for product advertisements and short films. 
-Delivers fast storyboarding, automated editing, and quick video production.`,
-    technologies: ['Python', 'Node.js', 'OpenAI APIs', 'React', 'REST', 'MongoDB', 'Ffmpeg', 'Google APIs', 'Redis', 'Docker'],
-    githubUrl: { url: 'https://github.com', private: true },
-    liveUrl: 'https://fixupe.com',
-    image: '/api/placeholder/600/400',
-    category: 'ai',
-    featured: true
-  },
+
   {
     id: 3,
     title: 'E-commerce Marketplace',
@@ -68,7 +69,6 @@ export default function Projects() {
 
   const handlePrivateGitRepo = () => {
     setRepoMessage('This repository is private. Please contact me for access.');
-    // You could add a toast notification here
     setTimeout(() => setRepoMessage('Repo status is currently private'), 3000);
   };
 
@@ -97,35 +97,37 @@ export default function Projects() {
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className={`bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl overflow-hidden shadow-lg   ${
-                  project.featured ? 'border-2 border-blue-200' : ''
+                className={`bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl overflow-hidden shadow-xl border border-slate-200 ${
+                  project.featured ? 'ring-2 ring-blue-500 ring-opacity-50' : ''
                 }`}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.2 }}
-                whileHover={{ scale: 1.02 }}
               >
                 <div className="lg:flex">
-                  <div className="lg:w-2/5">
-                    <div className="h-64 lg:h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                      <div className="text-white text-center p-6">
-                        <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-sm mb-4">
+                  <div className="lg:w-2/5 relative">
+                    <div className="h-64 lg:h-full bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center relative overflow-hidden">
+                      <div className="absolute inset-0 bg-black/10"></div>
+                      <div className="text-white text-center p-6 relative z-10">
+                        <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-sm mb-4 backdrop-blur-sm">
                           {project.category.toUpperCase()}
                         </span>
                         <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-                        <p className="text-blue-100">{project.description}</p>
+                        <p className="text-blue-100 opacity-90">{project.description}</p>
                       </div>
                     </div>
                   </div>
                   
                   <div className="lg:w-3/5 p-8">
-                    <p className="text-slate-600 mb-6 whitespace-pre-line">{project.longDescription}</p>
+                    <p className="text-slate-700 mb-6 leading-relaxed whitespace-pre-line">
+                      {project.longDescription}
+                    </p>
                     
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
+                          className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium border border-blue-100"
                         >
                           {tech}
                         </span>
@@ -133,40 +135,20 @@ export default function Projects() {
                     </div>
                     
                     <div className="flex space-x-4 items-center">
-                      {/* {project.githubUrl.private ? (
-                        <button
-                          onClick={handlePrivateGitRepo}
-                          className="flex items-center space-x-2 text-slate-500 hover:text-slate-700 transition-colors"
-                          title="Private Repository - Click for details"
-                        >
-                          <Lock className="w-5 h-5" />
-                          <span>Private Code</span>
-                        </button>
-                      ) : (
-                        <a
-                          href={project.githubUrl.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center space-x-2 text-slate-700 hover:text-slate-900 transition-colors"
-                        >
-                          <Github className="w-5 h-5" />
-                          <span>Code</span>
-                        </a>
-                      )} */}
                       {project.liveUrl && (
                         <a
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex bg-blue-800 p-2 rounded-2xl  items-center space-x-2   transition-colors"
+                          className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg transition-all duration-200 hover:bg-blue-700 shadow-md"
                         >
-                          <ExternalLink className="w-5 h-5" />
-                          <span>Live Demo</span>
+                          <ExternalLink className="w-4 h-4" />
+                          <span className="font-medium">Live Demo</span>
                         </a>
                       )}
-                      <button className="flex items-center space-x-2 text-purple-600 hover:text-purple-700 transition-colors ml-auto">
-                        <span>Case Study</span>
-                        <ArrowRight className="w-4 h-4" />
+                      <button className="flex items-center space-x-2 text-slate-600 hover:text-slate-800 transition-colors ml-auto group">
+                        <span className="font-medium">Case Study</span>
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                       </button>
                     </div>
                   </div>
@@ -181,10 +163,15 @@ export default function Projects() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.8 }}
           >
-            <button  className="bg-slate-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-slate-800  flex mx-auto items-center space-x-2 ">
-              <a href='https://github.com/eleshinlomo' target='_blank'>View All Projects</a>
+            <a 
+              href='https://github.com/eleshinlomo' 
+              target='_blank' 
+              rel='noopener noreferrer'
+              className="inline-flex items-center space-x-2 bg-slate-900 text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 hover:bg-slate-800 shadow-lg"
+            >
+              <span>View All Projects</span>
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </a>
           </motion.div>
         </motion.div>
       </div>
