@@ -119,7 +119,7 @@ export default function About() {
                       animate={inView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 0.3 }}
                     >
-                      👋 Hello, I'm
+                      👋 Hello, I&apos;m
                     </motion.div>
                     <motion.h3
                       className="text-5xl md:text-6xl font-black text-white mb-4"
@@ -156,7 +156,7 @@ export default function About() {
                       <div className="flex-1">
                         <h4 className="font-bold text-slate-900 mb-2 text-lg">The Journey</h4>
                         <p className="text-slate-600 leading-relaxed">
-                          I'm a Software and AI Engineer with <span className="font-semibold text-blue-600">4+ years</span> of experience building scalable applications and intelligent systems. My journey started from building webpages with DREAMWEAVER, WYSIWYG, HTML and CSS and evolved into a passion for software engineering, artificial intelligence and machine learning.
+                          I&apos;m a Software and AI Engineer with <span className="font-semibold text-blue-600">4+ years</span> of experience building scalable applications and intelligent systems. My journey started from building webpages with DREAMWEAVER, WYSIWYG, HTML and CSS and evolved into a passion for software engineering, artificial intelligence and machine learning.
                         </p>
                       </div>
                     </div>
@@ -201,7 +201,10 @@ export default function About() {
                           <Heart className="w-5 h-5 text-red-500" fill="currentColor" />
                         </h4>
                         <p className="text-slate-700 leading-relaxed">
-                          When I'm not coding, you can find me contributing to open-source projects, reading research papers, or exploring new advancements in AI and software development. And of course, I also play hard—well, that's another story. I love computer games, and I like them 2D. Not a fan of realistic games!
+                          When I&apos;m not coding, you can find me contributing to open-source projects, 
+                          reading research papers, or exploring new advancements in AI and software development. 
+                          And of course, I also play hard—well, that&apos;s another story. 
+                          I love computer games, and I like them 2D. Not a fan of realistic games!
                         </p>
                       </div>
                     </div>

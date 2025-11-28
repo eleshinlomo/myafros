@@ -9,7 +9,7 @@ import Skills from "@/components/sections/Skills";
 
 const Home = ()=> {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" id='home'>
       <Header />
       <Hero />
       <About />
