@@ -61,16 +61,17 @@ export default function About() {
         />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      {/* FIXED: Added proper centering container */}
+      <div className="container mx-auto px-2 sm:px-6 relative z-10 max-w-full">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="max-w-7xl mx-auto"
+          className="max-w-7xl mx-auto w-full"
         >
           {/* Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-16 md:mb-20 px-4">
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -81,10 +82,10 @@ export default function About() {
               <span>GET TO KNOW ME</span>
             </motion.div>
             
-            <h2 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-blue-900 to-purple-900 mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-blue-900 to-purple-900 mb-6">
               About Me
             </h2>
-            <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl lg:text-2xl text-slate-600 max-w-3xl mx-auto px-4">
               Passionate about solving complex problems with
               <span className="text-blue-600 font-semibold"> elegant code</span> and
               <span className="text-purple-600 font-semibold"> intelligent systems</span>
@@ -92,19 +93,19 @@ export default function About() {
           </div>
 
           {/* Main Content Grid */}
-          <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start mb-16 md:mb-20 px-4">
             {/* Left Column - Bio */}
             <div className="relative">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="sticky top-8"
+                className="lg:sticky lg:top-8"
               >
                 {/* Greeting Card */}
-                <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-3xl p-8 mb-8 overflow-hidden shadow-2xl">
+                <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-3xl p-6 md:p-8 mb-6 md:mb-8 overflow-hidden shadow-2xl">
                   <motion.div
-                    className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"
+                    className="absolute top-0 right-0 w-48 md:w-64 h-48 md:h-64 bg-white/10 rounded-full blur-3xl"
                     animate={{
                       scale: [1, 1.2, 1],
                       opacity: [0.3, 0.5, 0.3],
@@ -114,7 +115,7 @@ export default function About() {
                   
                   <div className="relative z-10">
                     <motion.div
-                      className="text-white/80 text-lg mb-3 font-medium"
+                      className="text-white/80 text-base md:text-lg mb-3 font-medium"
                       initial={{ opacity: 0, y: 20 }}
                       animate={inView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 0.3 }}
@@ -122,7 +123,7 @@ export default function About() {
                       👋 Hello, I&apos;m
                     </motion.div>
                     <motion.h3
-                      className="text-5xl md:text-6xl font-black text-white mb-4"
+                      className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-4"
                       initial={{ opacity: 0, y: 20 }}
                       animate={inView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 0.4 }}
@@ -130,7 +131,7 @@ export default function About() {
                       Oluwaseun
                     </motion.h3>
                     <motion.p
-                      className="text-white/90 text-xl"
+                      className="text-white/90 text-lg md:text-xl"
                       initial={{ opacity: 0, y: 20 }}
                       animate={inView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 0.5 }}
@@ -142,20 +143,20 @@ export default function About() {
 
                 {/* Bio Cards */}
                 <motion.div
-                  className="space-y-6"
+                  className="space-y-4 md:space-y-6"
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.6 }}
                 >
                   {/* Experience Card */}
-                  <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200">
+                  <div className="bg-white rounded-2xl p-5 md:p-6 shadow-lg border border-slate-200">
                     <div className="flex items-start gap-4">
                       <div className="p-3 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl">
-                        <Code2 className="w-6 h-6 text-white" />
+                        <Code2 className="w-5 h-5 md:w-6 md:h-6 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-bold text-slate-900 mb-2 text-lg">The Journey</h4>
-                        <p className="text-slate-600 leading-relaxed">
+                        <h4 className="font-bold text-slate-900 mb-2 text-base md:text-lg">The Journey</h4>
+                        <p className="text-slate-600 text-sm md:text-base leading-relaxed">
                           I&apos;m a Software and AI Engineer with <span className="font-semibold text-blue-600">4+ years</span> of experience building scalable applications and intelligent systems. My journey started from building webpages with DREAMWEAVER, WYSIWYG, HTML and CSS and evolved into a passion for software engineering, artificial intelligence and machine learning.
                         </p>
                       </div>
@@ -163,14 +164,14 @@ export default function About() {
                   </div>
 
                   {/* Current Focus Card */}
-                  <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200">
+                  <div className="bg-white rounded-2xl p-5 md:p-6 shadow-lg border border-slate-200">
                     <div className="flex items-start gap-4">
                       <div className="p-3 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl">
-                        <Brain className="w-6 h-6 text-white" />
+                        <Brain className="w-5 h-5 md:w-6 md:h-6 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-bold text-slate-900 mb-2 text-lg">Current Focus</h4>
-                        <p className="text-slate-600 leading-relaxed">
+                        <h4 className="font-bold text-slate-900 mb-2 text-base md:text-lg">Current Focus</h4>
+                        <p className="text-slate-600 text-sm md:text-base leading-relaxed">
                           Currently, I specialize in developing end-to-end AI solutions and integrations, from data preprocessing and model training to deployment and software integration with AI. I believe in creating technology that not only works well but also makes a positive impact.
                         </p>
                       </div>
@@ -179,11 +180,11 @@ export default function About() {
 
                   {/* Personal Touch Card */}
                   <motion.div 
-                    className="relative bg-gradient-to-br from-amber-50 via-orange-50 to-pink-50 rounded-2xl p-6 shadow-lg border-2 border-orange-200 overflow-hidden"
+                    className="relative bg-gradient-to-br from-amber-50 via-orange-50 to-pink-50 rounded-2xl p-5 md:p-6 shadow-lg border-2 border-orange-200 overflow-hidden"
                     whileHover={{ scale: 1.02 }}
                   >
                     <motion.div
-                      className="absolute top-0 right-0 w-32 h-32 bg-orange-300/20 rounded-full blur-2xl"
+                      className="absolute top-0 right-0 w-24 md:w-32 h-24 md:h-32 bg-orange-300/20 rounded-full blur-2xl"
                       animate={{
                         scale: [1, 1.3, 1],
                         opacity: [0.3, 0.6, 0.3],
@@ -193,14 +194,14 @@ export default function About() {
                     
                     <div className="relative flex items-start gap-4">
                       <div className="p-3 bg-gradient-to-br from-orange-400 to-pink-500 rounded-xl">
-                        <Gamepad2 className="w-6 h-6 text-white" />
+                        <Gamepad2 className="w-5 h-5 md:w-6 md:h-6 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-bold text-slate-900 mb-2 text-lg flex items-center gap-2">
+                        <h4 className="font-bold text-slate-900 mb-2 text-base md:text-lg flex items-center gap-2">
                           Beyond the Code
-                          <Heart className="w-5 h-5 text-red-500" fill="currentColor" />
+                          <Heart className="w-4 h-4 md:w-5 md:h-5 text-red-500" fill="currentColor" />
                         </h4>
-                        <p className="text-slate-700 leading-relaxed">
+                        <p className="text-slate-700 text-sm md:text-base leading-relaxed">
                           When I&apos;m not coding, you can find me contributing to open-source projects, 
                           reading research papers, or exploring new advancements in AI and software development. 
                           And of course, I also play hard—well, that&apos;s another story. 
@@ -215,7 +216,7 @@ export default function About() {
 
             {/* Right Column - Specialties */}
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6"
               initial={{ opacity: 0, x: 50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.4, duration: 0.6 }}
@@ -223,7 +224,7 @@ export default function About() {
               {specialties.map((item, index) => (
                 <motion.div
                   key={item.title}
-                  className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-200 overflow-hidden"
+                  className="group relative bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-200 overflow-hidden"
                   initial={{ opacity: 0, y: 30 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.5 + index * 0.1 }}
@@ -236,24 +237,24 @@ export default function About() {
 
                   {/* Animated Corner Accent */}
                   <motion.div
-                    className={`absolute -top-12 -right-12 w-24 h-24 bg-gradient-to-br ${item.gradient} rounded-full opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-500`}
+                    className={`absolute -top-10 -right-10 w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br ${item.gradient} rounded-full opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-500`}
                   />
 
                   <div className="relative z-10">
                     {/* Icon Container */}
                     <motion.div
-                      className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${item.gradient} mb-6 shadow-lg`}
+                      className={`inline-flex p-3 md:p-4 rounded-2xl bg-gradient-to-br ${item.gradient} mb-4 md:mb-6 shadow-lg`}
                       whileHover={{ rotate: 360, scale: 1.1 }}
                       transition={{ duration: 0.6 }}
                     >
-                      <item.icon className="w-8 h-8 text-white" />
+                      <item.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
                     </motion.div>
 
                     {/* Content */}
-                    <h4 className="font-bold text-slate-900 mb-3 text-xl group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-slate-900 group-hover:to-slate-600 transition-all duration-300">
+                    <h4 className="font-bold text-slate-900 mb-3 text-lg md:text-xl group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-slate-900 group-hover:to-slate-600 transition-all duration-300">
                       {item.title}
                     </h4>
-                    <p className="text-slate-600 leading-relaxed text-sm">
+                    <p className="text-slate-600 leading-relaxed text-xs md:text-sm">
                       {item.description}
                     </p>
                   </div>
@@ -269,7 +270,7 @@ export default function About() {
 
           {/* Stats Bar */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 px-4"
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.8 }}
@@ -282,21 +283,21 @@ export default function About() {
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
-                className="bg-white rounded-2xl p-6 text-center shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300"
+                className="bg-white rounded-2xl p-4 md:p-6 text-center shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.9 + index * 0.1 }}
                 whileHover={{ y: -5 }}
               >
                 <motion.div
-                  className={`text-4xl md:text-5xl font-black mb-2 bg-gradient-to-r ${stat.color} text-transparent bg-clip-text`}
+                  className={`text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black mb-1 md:mb-2 bg-gradient-to-r ${stat.color} text-transparent bg-clip-text`}
                   initial={{ scale: 0 }}
                   animate={inView ? { scale: 1 } : {}}
                   transition={{ delay: 1 + index * 0.1, type: "spring", stiffness: 200 }}
                 >
                   {stat.value}
                 </motion.div>
-                <div className="text-slate-600 font-semibold text-sm">
+                <div className="text-slate-600 font-semibold text-xs md:text-sm">
                   {stat.label}
                 </div>
               </motion.div>

@@ -115,7 +115,7 @@ export default function Projects() {
         />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-2 relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -221,7 +221,7 @@ export default function Projects() {
                           />
 
                           {/* Content */}
-                          <div className="relative z-10 h-full flex flex-col justify-center items-center text-white p-8">
+                          <div className="relative z-10 h-full flex flex-col justify-center items-center text-white p-2">
                             <motion.div
                               className="mb-6"
                               animate={isHovered ? { rotate: 360, scale: 1.1 } : {}}
