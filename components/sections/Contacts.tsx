@@ -21,7 +21,7 @@ export default function Contact() {
    const [captchaValue, setCaptchaValue] = useState<string | null>(null);
 
 
-   const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''
+   const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || 'demo'
 
     // Fixed TypeScript type
   const handleCaptchaChange = (value: string | null) => {
