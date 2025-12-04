@@ -93,7 +93,7 @@ const Hero = () => {
        
           </motion.div>
 
-          {/* Main Heading */}
+        
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -122,7 +122,6 @@ const Hero = () => {
             </h1>
           </motion.div>
 
-          {/* Role Pills */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -178,7 +177,7 @@ const Hero = () => {
             </p>
           </motion.div>
 
-          {/* Social Links */}
+     
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -207,7 +206,7 @@ const Hero = () => {
                 />
                 <social.icon className="w-6 h-6 text-white relative z-10" />
                 
-                {/* Tooltip */}
+             
                 <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
                   {social.label}
                 </div>
@@ -215,7 +214,6 @@ const Hero = () => {
             ))}
           </motion.div>
 
-          {/* CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -241,7 +239,7 @@ const Hero = () => {
          
         </motion.div>
 
-        {/* Scroll Indicator */}
+       
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
