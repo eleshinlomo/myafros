@@ -6,6 +6,7 @@ import { useInView } from 'react-intersection-observer';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { sendContactMessage } from '../api/contact';
 import { FormEvent, useEffect, useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function Contact() {
   
@@ -17,6 +18,16 @@ export default function Contact() {
   const [error, setError] = useState('')
   const [isSending, setIsSending] = useState(false)
   const [color, setColor] = useState('white')
+   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+
+
+   const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''
+
+    // Fixed TypeScript type
+  const handleCaptchaChange = (value: string | null) => {
+    setCaptchaValue(value);
+  };
+
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -28,15 +39,26 @@ export default function Contact() {
        setIsSending(true)
          if(!name || !message || !email){
             setError('Input fields cannot be empty')
+            setIsSending(false)
+             window.location.href='#contact'
             return
          }
+
+           if (!captchaValue) {
+      setError('Please complete the CAPTCHA verification');
+      window.location.href='#contact'
+       setIsSending(false)
+      return;
+    }
+
        try{
       const payload = {
          service: 'MyAfros',
          name,
          email,
          subject,
-         message
+         message,
+         captchaValue
       }
       const response = await sendContactMessage(payload)
    
@@ -58,11 +80,11 @@ export default function Contact() {
     
   }
 
-  useEffect(()=>{
-      if(error){
-        setColor('red')
-      }
-  }, [error])
+  // useEffect(()=>{
+  //     if(error){
+  //       setColor('red')
+  //     }
+  // }, [error])
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-slate-900 to-purple-900 text-white">
@@ -82,36 +104,8 @@ export default function Contact() {
             I&apos;m always open to discussing new opportunities.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <motion.div
-              className="flex items-center justify-center space-x-3"
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2 }}
-            >
-              <Mail className="w-6 h-6 text-blue-400" />
-              <span>seun.olatunji2@gmail.com</span>
-            </motion.div>
-            <motion.div
-              className="flex items-center justify-center space-x-3"
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3 }}
-            >
-              <Phone className="w-6 h-6 text-blue-400" />
-              <span>+1 (443) 265-2442</span>
-            </motion.div>
-            <motion.div
-              className="flex items-center justify-center space-x-3"
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.4 }}
-            >
-              <MapPin className="w-6 h-6 text-blue-400" />
-              <span>Baltimore, Maryland</span>
-            </motion.div>
-          </div>
-             <p className={`text-${color}-600 font-extrabold py-2`}>{error ? error : success}</p>
+         
+             <p className={`${error && 'text-red-600'} text-white font-extrabold py-2`}>{error ? error : success}</p>
           <motion.form
             className="space-y-6 max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
@@ -153,6 +147,15 @@ export default function Contact() {
               className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-slate-300 focus:outline-none focus:border-blue-400 transition-all resize-none"
                required
             ></textarea>
+
+             <div className="w-full flex justify-center transform scale-90"> {/* Scale down to 90% */}
+                  <ReCAPTCHA
+                    sitekey={SITE_KEY}
+                    onChange={handleCaptchaChange}
+                  />
+                </div>
+
+
             <motion.button
               type="submit"
               className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl transition-all flex items-center space-x-2 mx-auto"
