@@ -29,7 +29,7 @@ const projects: Project[] = [
     longDescription: `Enterprise-grade platform for creating video advertisements and storyboards using AI. Accelerates content creation with automated editing, fast storyboarding, and professional video production.`,
     technologies: ['Python/Django', 'Next.js/TypeScript', 'OpenAI API', 'FFmpeg', 'MongoDB', 'Redis', 'Docker'],
     githubUrl: { url: 'https://github.com/eleshinlomo', private: true },
-    liveUrl: 'https://fixupe.com',
+    liveUrl: 'https://ai.fixupe.com',
     category: 'ai',
     featured: true
   },
