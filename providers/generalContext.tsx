@@ -10,7 +10,7 @@ interface GeneralContextProps {
     children: React.ReactNode
 }
 
-export const GeneralContex = ({children}: GeneralContextProps)=>{
+export const GeneralContextProvider = ({children}: GeneralContextProps)=>{
 
     const text = 'See you there'
     const values= {
