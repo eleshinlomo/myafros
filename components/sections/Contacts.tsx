@@ -36,6 +36,7 @@ export default function Contact() {
 
   const handleSendContactMessage = async (e: FormEvent)=>{
        e.preventDefault()
+       setError('')
        setIsSending(true)
          if(!name || !message || !email){
             setError('Input fields cannot be empty')
