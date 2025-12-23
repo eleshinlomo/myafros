@@ -1,5 +1,5 @@
 
-import { BASE_URL } from "../urls";
+import { BASE_URL } from "../../components/urls";
 
 interface ContactMessageProps {
     service: string;

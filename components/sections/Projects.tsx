@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink, Github, ArrowRight, Lock, Sparkles, Code2, Rocket, Briefcase, ShoppingBag, Database, ComputerIcon } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight, Briefcase, Monitor, Database, ShoppingBag, Cpu, ChevronRight, BarChart } from 'lucide-react';
 
 interface GithubUrl {
   url: string;
@@ -17,333 +17,254 @@ interface Project {
   technologies: string[];
   githubUrl: GithubUrl;
   liveUrl?: string;
-  image: string;
-  category: 'ai' | 'web' | 'mobile' | 'data' | 'marketplace';
+  category: 'ai' | 'web' | 'mobile' | 'data' | 'marketplace' | 'logs';
   featured: boolean;
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    title: 'Movies and Video Ads Storyboard',
-    description: 'AI powered Video storyboard for movies and Ads',
-    longDescription: `Instant video ads and storyboard platform. 
-Uses AI to accelerate content creation for product advertisements and short films. 
-Delivers fast storyboarding, automated editing, and quick video production.`,
-    technologies: ['Python/Django', 'Next/Typescript', 'Node.js', 'OpenAI APIs', 'React', 'REST', 'MongoDB', 'Ffmpeg', 'Google APIs', 'Redis', 'Docker'],
-    githubUrl: { url: 'https://github.com', private: true },
+    title: 'AI Video Storyboard Platform',
+    description: 'AI-powered video ads and storyboard generation',
+    longDescription: `Enterprise-grade platform for creating video advertisements and storyboards using AI. Accelerates content creation with automated editing, fast storyboarding, and professional video production.`,
+    technologies: ['Python/Django', 'Next.js/TypeScript', 'OpenAI API', 'FFmpeg', 'MongoDB', 'Redis', 'Docker'],
+    githubUrl: { url: 'https://github.com/eleshinlomo', private: true },
     liveUrl: 'https://fixupe.com',
-    image: '/api/placeholder/600/400',
     category: 'ai',
     featured: true
   },
   {
     id: 2,
-    title: 'PRD, Feature and Mock-up Creator',
-    description: 'AI-powered product management platform',
-    longDescription: `AI-driven system for creating PRDs, features, and mock-ups. Processes documents using LLM and LLM-Function call that returns JSONs. Includes automated extraction, sentiment analysis based on project profile.`,
-    technologies: ['Node.js', 'OpenAI APIs', 'React', 'REST', 'MongoDB', 'Ffmpeg', 'Google APIs'],
-    githubUrl: { url: 'https://github.com', private: true },
+    title: 'AI Product Management System',
+    description: 'AI-driven PRD, feature, and mock-up creator',
+    longDescription: `Comprehensive product management platform that uses LLMs to create product requirements documents, features, and mock-ups. Includes automated extraction and sentiment analysis based on project profiles.`,
+    technologies: ['Node.js', 'OpenAI API', 'React', 'REST API', 'MongoDB', 'AWS'],
+    githubUrl: { url: 'https://github.com/eleshinlomo', private: true },
     liveUrl: 'https://product.fixupe.com/',
-    image: '/api/placeholder/600/400',
     category: 'data',
     featured: true
   },
-  {
+    {
     id: 3,
-    title: 'E-commerce Marketplace',
-    description: 'Personalized product recommendation engine',
-    longDescription: 'Advanced recommendation system using collaborative filtering and content-based approaches. Integrates with regional trending topics in Nigeria to provide personalized shopping experiences.',
-    technologies: ['Python', 'Scikit-learn', 'Node.js', 'MongoDB', 'AWS CLOUD', 'AWS SES', 'AWS S3'],
-    githubUrl: { url: 'https://github.com', private: true },
+    title: 'Cloud logger',
+    description: 'Pm2, Nginx log monitor.',
+    longDescription: 'Monitor PM2 processes and NGINX logs from your cloud instances to quickly detect errors, performance issues, and downtime',
+    technologies: ['Next js', 'Scikit-learn', 'Node.js', 'MongoDB', 'AWS', 'S3', 'SES'],
+    githubUrl: { url: 'https://github.com/eleshinlomo/logger', private: true },
+    liveUrl: 'https://logger.fixupe.com',
+    category: 'logs',
+    featured: false
+  },
+    {
+    id: 4,
+    title: 'Event Manager',
+    description: 'Manage your events seamlessly',
+    longDescription: 'Post event gigs, find events close to you, and easily connect with vendors for seamless event planning.',
+    technologies: ['Next js', 'Django', 'Node.js', 'MongoDB', 'AWS', 'S3', 'SES'],
+    githubUrl: { url: 'https://github.com/eleshinlomo', private: true },
+    liveUrl: 'https://event.fixupe.com',
+    category: 'marketplace',
+    featured: false
+  },
+  {
+    id: 5,
+    title: 'E-commerce Recommendation Engine',
+    description: 'Personalized shopping platform with AI recommendations',
+    longDescription: 'Advanced e-commerce marketplace with AI-powered recommendation system using collaborative filtering. Integrates with regional trending topics to provide personalized shopping experiences.',
+    technologies: ['Python', 'Scikit-learn', 'Node.js', 'MongoDB', 'AWS', 'S3', 'SES'],
+    githubUrl: { url: 'https://github.com/eleshinlomo', private: true },
     liveUrl: 'https://elteema.com',
-    image: '/api/placeholder/600/400',
     category: 'marketplace',
     featured: false
   },
 ];
 
-const categoryIcons = {
-  ai: ComputerIcon,
-  web: Code2,
-  mobile: Rocket,
-  data: Database,
-  marketplace: ShoppingBag
-};
-
-const categoryColors = {
-  ai: 'from-purple-600 via-blue-600 to-indigo-700',
-  web: 'from-emerald-600 via-teal-600 to-cyan-700',
-  mobile: 'from-orange-600 via-pink-600 to-rose-700',
-  data: 'from-blue-600 via-indigo-600 to-purple-700',
-  marketplace: 'from-blue-600 via-blue-800 to-rose-900',
+const categoryConfig = {
+  ai: {
+    icon: Cpu,
+    color: 'bg-gradient-to-br from-purple-600 to-indigo-700',
+    textColor: 'text-purple-600',
+    badgeColor: 'bg-purple-100 text-purple-700'
+  },
+  web: {
+    icon: Monitor,
+    color: 'bg-gradient-to-br from-blue-600 to-cyan-600',
+    textColor: 'text-blue-600',
+    badgeColor: 'bg-blue-100 text-blue-700'
+  },
+  mobile: {
+    icon: Briefcase,
+    color: 'bg-gradient-to-br from-green-600 to-emerald-700',
+    textColor: 'text-green-600',
+    badgeColor: 'bg-green-100 text-green-700'
+  },
+  data: {
+    icon: Database,
+    color: 'bg-gradient-to-br from-indigo-600 to-violet-700',
+    textColor: 'text-indigo-600',
+    badgeColor: 'bg-indigo-100 text-indigo-700'
+  },
+  marketplace: {
+    icon: ShoppingBag,
+    color: 'bg-gradient-to-br from-blue-600 to-slate-800',
+    textColor: 'text-blue-600',
+    badgeColor: 'bg-slate-100 text-slate-700'
+  },
+    logs: {
+    icon: BarChart,
+    color: 'bg-gradient-to-br from-gray-600 to-slate-800',
+    textColor: 'text-blue-600',
+    badgeColor: 'bg-slate-100 text-slate-700'
+  },
 };
 
 export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
-  const [repoMessage, setRepoMessage] = useState('Repo status is currently private');
-
-  const handlePrivateGitRepo = () => {
-    setRepoMessage('This repository is private. Please contact me for access.');
-    setTimeout(() => setRepoMessage('Repo status is currently private'), 3000);
-  };
-
+  
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
   return (
-    <section id="projects" className="py-10 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.5, 0.3, 0.5],
-          }}
-          transition={{ duration: 10, repeat: Infinity }}
-        />
-      </div>
-
-      <div className="container mx-auto px-2 relative z-10">
+    <section id="projects" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          {/* Header */}
-          <div className="text-center mb-20">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-sm font-semibold mb-6 shadow-lg"
-            >
-              <ShoppingBag className="w-4 h-4" />
-              <span>PORTFOLIO SHOWCASE</span>
-            </motion.div>
-            
-            <h2 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 mb-6">
-              Featured Projects
-            </h2>
-            <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Transforming ideas into powerful solutions through
-              <span className="text-blue-600 font-semibold"> AI</span>,
-              <span className="text-indigo-600 font-semibold"> innovation</span>, and
-              <span className="text-purple-600 font-semibold"> cutting-edge technology</span>
-            </p>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-600 mb-6">
+            <Briefcase className="w-4 h-4" />
+            <span>PORTFOLIO</span>
           </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Projects
+          </h2>
+          
+           
+        </motion.div>
 
-          {/* Projects Grid */}
-          <div className="grid gap-10">
-            {projects.map((project, index) => {
-              const CategoryIcon = categoryIcons[project.category];
-              const isHovered = hoveredProject === project.id;
-              
-              return (
-                <motion.div
-                  key={project.id}
-                  className="group relative"
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: index * 0.15, duration: 0.6 }}
-                  onHoverStart={() => setHoveredProject(project.id)}
-                  onHoverEnd={() => setHoveredProject(null)}
-                >
-                  {/* Featured Badge */}
-                  {/* {project.featured && (
-                    <motion.div
-                      className="absolute -top-4 left-8 z-20 px-4 py-2 bg-gradient-to-r from-amber-400 to-orange-500 text-white rounded-full text-sm font-bold shadow-xl flex items-center gap-2"
-                      initial={{ y: -20, opacity: 0 }}
-                      animate={inView ? { y: 0, opacity: 1 } : {}}
-                      transition={{ delay: index * 0.15 + 0.3 }}
-                    >
-                      <Briefcase className="w-4 h-4" />
-                      <span>FEATURED</span>
-                    </motion.div>
-                  )} */}
-
-                  {/* Project Card */}
-                  <motion.div
-                    className={`relative bg-white rounded-3xl overflow-hidden shadow-2xl border-2 transition-all duration-500 ${
-                      project.featured 
-                        ? 'border-blue-200 hover:border-blue-400' 
-                        : 'border-slate-200 hover:border-slate-300'
-                    }`}
-                    whileHover={{ scale: 1.02, y: -5 }}
-                  >
-                    <div className="lg:flex">
-                      {/* Left Side - Visual Section */}
-                      <div className="lg:w-2/5 relative">
-                        <div className={`h-80 lg:h-full bg-gradient-to-br ${categoryColors[project.category]} relative overflow-hidden`}>
-                          {/* Animated Background Pattern */}
-                          <div className="absolute inset-0 opacity-20">
-                            <motion.div
-                              className="absolute inset-0"
-                              style={{
-                                backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-                                backgroundSize: '40px 40px',
-                              }}
-                              animate={{
-                                backgroundPosition: ['0px 0px', '40px 40px'],
-                              }}
-                              transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                            />
-                          </div>
-
-                          {/* Glowing Orbs */}
-                          <motion.div
-                            className="absolute top-10 right-10 w-32 h-32 bg-white/20 rounded-full blur-2xl"
-                            animate={{
-                              scale: [1, 1.3, 1],
-                              opacity: [0.3, 0.6, 0.3],
-                            }}
-                            transition={{ duration: 4, repeat: Infinity }}
-                          />
-                          <motion.div
-                            className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"
-                            animate={{
-                              scale: [1.2, 1, 1.2],
-                              opacity: [0.2, 0.4, 0.2],
-                            }}
-                            transition={{ duration: 5, repeat: Infinity }}
-                          />
-
-                          {/* Content */}
-                          <div className="relative z-10 h-full flex flex-col justify-center items-center text-white p-2">
-                            <motion.div
-                              className="mb-6"
-                              animate={isHovered ? { rotate: 360, scale: 1.1 } : {}}
-                              transition={{ duration: 0.6 }}
-                            >
-                              <CategoryIcon className="w-16 h-16 drop-shadow-lg" />
-                            </motion.div>
-                            
-                            <motion.span 
-                              className="inline-block px-4 py-2 bg-white/25 backdrop-blur-md rounded-full text-sm font-bold mb-4 shadow-lg border border-white/30"
-                              whileHover={{ scale: 1.05 }}
-                            >
-                              {project.category.toUpperCase()}
-                            </motion.span>
-                            
-                            <h3 className="text-3xl font-black mb-3 text-center drop-shadow-lg">
-                              {project.title}
-                            </h3>
-                            <p className="text-white/90 text-center text-lg font-medium">
-                              {project.description}
-                            </p>
-                          </div>
+        {/* Projects Grid */}
+        <div className="space-y-12">
+          {projects.map((project, index) => {
+            const { icon: Icon, color, textColor, badgeColor } = categoryConfig[project.category];
+            const isHovered = hoveredProject === project.id;
+            
+            return (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                className="group"
+                onMouseEnter={() => setHoveredProject(project.id)}
+                onMouseLeave={() => setHoveredProject(null)}
+              >
+                <div className="flex flex-col lg:flex-row gap-8 bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
+                  {/* Left Side - Visual & Category */}
+                  <div className="lg:w-2/5">
+                    <div className="space-y-6">
+                      {/* Category Badge */}
+                      <div className="flex items-center gap-3">
+                        <div className={`p-3 rounded-xl ${color}`}>
+                          <Icon className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <span className={`px-3 py-1 rounded-full text-xs font-medium ${badgeColor}`}>
+                            {project.category.toUpperCase()}
+                          </span>
+                          {project.featured && (
+                            <span className="ml-2 px-3 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-700">
+                              FEATURED
+                            </span>
+                          )}
                         </div>
                       </div>
-                      
-                      {/* Right Side - Content Section */}
-                      <div className="lg:w-3/5 p-8 md:p-10">
-                        <div className="mb-6">
-                          <h4 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">
-                            About This Project
-                          </h4>
-                          <p className="text-slate-700 text-lg leading-relaxed whitespace-pre-line">
-                            {project.longDescription}
-                          </p>
-                        </div>
-                        
-                        {/* Technologies */}
-                        <div className="mb-8">
-                          <h4 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">
-                            Technologies Used
-                          </h4>
-                          <div className="flex flex-wrap gap-2">
-                            {project.technologies.map((tech, i) => (
-                              <motion.span
-                                key={tech}
-                                className="px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 rounded-xl text-sm font-semibold border border-blue-200 shadow-sm"
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                                transition={{ delay: index * 0.15 + i * 0.05 }}
-                                whileHover={{ scale: 1.05, y: -2 }}
-                              >
-                                {tech}
-                              </motion.span>
-                            ))}
-                          </div>
-                        </div>
-                        
-                        {/* Action Buttons */}
-                        <div className="flex flex-wrap gap-4 items-center">
-                          {project.liveUrl && (
-                            <motion.a
-                              href={project.liveUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="group/btn flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-bold transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/50 relative overflow-hidden"
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.95 }}
+
+                      {/* Project Title & Description */}
+                      <div>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                          {project.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          {project.longDescription}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Side - Details & Actions */}
+                  <div className="lg:w-3/5">
+                    <div className="space-y-8">
+                      {/* Technologies */}
+                      <div>
+                        <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-4">
+                          Technologies
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.map((tech, i) => (
+                            <span
+                              key={tech}
+                              className="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm font-medium border border-gray-200"
                             >
-                              <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-400 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
-                              <ExternalLink className="w-5 h-5 relative z-10" />
-                              <span className="relative z-10">Live Demo</span>
-                            </motion.a>
-                          )}
-                          
-                          <motion.button 
-                            className="flex items-center gap-2 text-slate-700 hover:text-blue-600 font-semibold transition-colors group/case"
-                            whileHover={{ x: 5 }}
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div className="flex flex-wrap items-center gap-4">
+                        {project.liveUrl && (
+                          <motion.a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 bg-gray-900 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-gray-800 transition-colors duration-200"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
                           >
-                            <span>View Case Study</span>
-                            <ArrowRight className="w-5 h-5 transition-transform group-hover/case:translate-x-2" />
-                          </motion.button>
+                            <ExternalLink className="w-4 h-4" />
+                            <span>View Live</span>
+                          </motion.a>
+                        )}
+                        
+                        <motion.a
+                          href="mailto:contact@fixupe.com?subject=Access Request"
+                          className="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200 group"
+                          whileHover={{ x: 5 }}
+                        >
+                          <span>Request Access</span>
+                          <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                        </motion.a>
+                      </div>
+
+                      {/* GitHub Status */}
+                      <div className="pt-4 border-t border-gray-100">
+                        <div className="flex items-center gap-3">
+                          <div className="flex items-center gap-2 text-sm text-gray-500">
+                            <Github className="w-4 h-4" />
+                            <span>Repository:</span>
+                          </div>
+                          <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">
+                            {project.githubUrl.private ? 'Private Enterprise' : 'Public'}
+                          </span>
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
 
-                    {/* Hover Glow Effect */}
-                    <motion.div
-                      className="absolute inset-0 pointer-events-none"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: isHovered ? 1 : 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-indigo-500/5" />
-                    </motion.div>
-                  </motion.div>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* View All Projects CTA */}
-          <motion.div
-            className="text-center mt-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.8 }}
-          >
-            <motion.a 
-              href='https://github.com/eleshinlomo' 
-              target='_blank' 
-              rel='noopener noreferrer'
-              className="group inline-flex items-center gap-3 bg-gradient-to-r from-slate-900 to-slate-800 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-slate-500/50 relative overflow-hidden"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="absolute inset-0 bg-gradient-to-r from-slate-700 to-slate-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <Github className="w-6 h-6 relative z-10" />
-              <span className="relative z-10">Explore All Projects on GitHub</span>
-              <ArrowRight className="w-6 h-6 relative z-10 transition-transform group-hover:translate-x-2" />
-            </motion.a>
-          </motion.div>
-        </motion.div>
+        
       </div>
     </section>
   );
