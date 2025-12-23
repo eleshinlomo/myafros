@@ -69,6 +69,7 @@ export default function Contact() {
         setEmail('')
         setSubject('')
         setMessage('')
+        setError('')
       }else{
          setError('Error. Your message was not sent. Please try again')
       }
