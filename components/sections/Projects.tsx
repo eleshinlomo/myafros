@@ -33,6 +33,17 @@ const projects: Project[] = [
     category: 'ai',
     featured: true
   },
+    {
+    id: 1,
+    title: 'Booking Manager',
+    description: 'Appoinment booking platform',
+    longDescription: `Fixupe Booking keeps clients and businesses in sync while helping businesses manage appointments, track earnings, and stay organized.`,
+    technologies: ['Node.js', 'Next.js/TypeScript', 'Google 0Auth2', 'AWS-SES', 'MongoDB', 'Redis', 'Docker'],
+    githubUrl: { url: 'https://github.com/eleshinlomo', private: true },
+    liveUrl: 'https://booking.fixupe.com',
+    category: 'marketplace',
+    featured: true
+  },
   {
     id: 2,
     title: 'AI Product Management System',
