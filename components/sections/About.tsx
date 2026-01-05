@@ -77,7 +77,7 @@ export default function About() {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Technical Journey</h4>
                     <p className="text-gray-600 leading-relaxed">
-                      With <span className="font-semibold text-blue-600">4+ years</span> of experience in software engineering, 
+                      With <span className="font-semibold text-blue-600">5+ years</span> of experience in software engineering, 
                       I specialize in developing full-stack applications and AI systems. 
                       My expertise spans from traditional web development to advanced machine learning implementations.
                     </p>
@@ -170,10 +170,10 @@ export default function About() {
               
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
                 {[
-                  { label: 'Years Experience', value: '4+', icon: Briefcase },
+                  { label: 'Years Experience', value: '5+', icon: Briefcase },
                   { label: 'Projects Completed', value: '40+', icon: Target },
-                  { label: 'Frontend Focus', value: '55%', icon: Code2 },
-                  { label: 'Backend Focus', value: '45%', icon: Database },
+                  { label: 'Frontend Focus', value: '50%', icon: Code2 },
+                  { label: 'Backend Focus', value: '50%', icon: Database },
                 ].map((stat, index) => (
                   <div
                     key={stat.label}

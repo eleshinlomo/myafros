@@ -263,7 +263,7 @@ export default function Projects() {
                             <span>Repository:</span>
                           </div>
                           <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">
-                            {project.githubUrl.private ? 'Private Enterprise' : 'Public'}
+                            {project.githubUrl.private ? 'Private' : 'Public'}
                           </span>
                         </div>
                       </div>
