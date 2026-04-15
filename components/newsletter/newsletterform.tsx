@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import { BASE_URL } from '@/components/urls'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { createWaitList } from '../../app/api/waitlist'
+import { createWaitList } from '../../api/waitlist'
 
 interface NewsletterProps {
   btnText: string;

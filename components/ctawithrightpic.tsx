@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { APILogos } from './aiapilogos'
+import { APILogos } from '../core/aiapilogos'
 
 
 function Ctawithrightpic() {

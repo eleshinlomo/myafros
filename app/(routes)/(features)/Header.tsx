@@ -17,7 +17,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-md z-50 border-b border-slate-700/50">
+    <div className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-md z-50 border-b border-slate-700/50">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <motion.a
@@ -81,6 +81,6 @@ export default function Header() {
           )}
         </AnimatePresence>
       </nav>
-    </header>
+    </div>
   );
 }

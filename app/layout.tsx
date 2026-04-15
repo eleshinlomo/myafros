@@ -32,7 +32,7 @@ const RootLayout = ({children}: RootLayoutProps)=> {
     
     <html lang="en">
       
-      <body className={inter.className}>
+      <body>
         
         <GeneralContextProvider>
         {children}

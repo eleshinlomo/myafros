@@ -4,7 +4,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { sendContactMessage } from '../../app/api/contact';
+import { sendContactMessage } from '../../../api/contact';
 import { FormEvent, useEffect, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 

@@ -4,7 +4,8 @@ import Footer from '@/components/footer'
 import React, {useState, useEffect, Suspense} from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import Chatbot from '@/components/chatbot'
+import Chatbot from '@/app/(routes)/(features)/chatbot/chatbot'
+import Header from '@/app/(routes)/(features)/Header'
 
 
 

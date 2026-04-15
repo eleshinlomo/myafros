@@ -5,7 +5,7 @@ import { Github, Linkedin, Mail, ArrowRight, Code2, Brain, ChevronDown } from 'l
 
 const Hero = () => {
   return (
-    <div className="flex items-center justify-center bg-white relative overflow-hidden">
+    <div className="flex items-center justify-center bg-white relative overflow-hidden min-h-screen">
       {/* Subtle background texture */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-50 to-white" />
       
@@ -27,7 +27,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className="container mx-auto px-6 text-center relative z-10">
+      <div className="container mx-auto px-4 md:px-6 text-center relative z-10 pb-24 md:pb-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -38,9 +38,9 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="mb-12"
+            className="mb-8 md:mb-12"
           >
-            <p className="text-lg text-gray-600 font-medium uppercase tracking-wider mb-2">
+            <p className="text-base md:text-lg text-gray-600 font-medium uppercase tracking-wider mb-2">
               Engineering Intelligent Solutions
             </p>
           </motion.div>
@@ -51,8 +51,8 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
-              <span className="text-gray-900 block mb-2">Seun</span>
+            <h1 className="text-5xl md:text-8xl font-bold mb-6 md:mb-8 leading-tight">
+              <span className="text-gray-900 block">Seun</span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-700 block">
                 Olatunji
               </span>
@@ -64,13 +64,13 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="flex flex-wrap justify-center gap-4 mb-12"
+            className="flex flex-wrap justify-center gap-3 md:gap-4 mb-8 md:mb-12"
           >
-            <div className="flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-lg text-blue-700 font-medium">
+            <div className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-blue-50 border border-blue-100 rounded-lg text-blue-700 font-medium text-sm md:text-base">
               <Code2 className="w-4 h-4" />
               <span>Software Engineer</span>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-indigo-50 border border-indigo-100 rounded-lg text-indigo-700 font-medium">
+            <div className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-indigo-50 border border-indigo-100 rounded-lg text-indigo-700 font-medium text-sm md:text-base">
               <Brain className="w-4 h-4" />
               <span>AI Specialist</span>
             </div>
@@ -81,9 +81,9 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
-            className="mb-16"
+            className="mb-10 md:mb-16"
           >
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-2">
               Building scalable software solutions and AI systems that drive 
               <span className="font-semibold text-gray-900"> business impact</span> through
               <span className="font-semibold text-blue-600"> innovative technology</span>
@@ -95,7 +95,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1 }}
-            className="flex justify-center gap-6 mb-16"
+            className="flex flex-wrap justify-center gap-4 md:gap-6 mb-12 md:mb-16"
           >
             {[
               { 
@@ -120,16 +120,16 @@ const Hero = () => {
               <motion.a
                 key={social.label}
                 href={social.href}
-                target={social.href !=='#contact' ? "_blank": ''}
+                target={social.href !== '#contact' ? '_blank' : ''}
                 rel="noopener noreferrer"
-                className={`group flex items-center gap-2 px-6 py-3 border rounded-lg font-medium transition-all duration-300 ${social.className} text-gray-700`}
+                className={`group flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 border rounded-lg font-medium transition-all duration-300 ${social.className} text-gray-700 text-sm md:text-base`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1 + index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <social.icon className="w-5 h-5" />
+                <social.icon className="w-4 h-4 md:w-5 md:h-5" />
                 <span>{social.label}</span>
               </motion.a>
             ))}
@@ -143,29 +143,29 @@ const Hero = () => {
           >
             <motion.a
               href="#projects"
-              className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-sm md:text-base"
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
               <span>View Portfolio</span>
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-1" />
             </motion.a>
           </motion.div>
         </motion.div>
 
-        {/* Scroll indicator */}
+        {/* Scroll indicator - only visible on larger screens or with sufficient height */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:block"
         >
           <motion.div
             className="flex flex-col items-center gap-3"
             animate={{ y: [0, 5, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
-            <span className="text-sm text-gray-500 font-medium">Explore Projects</span>
+            <span className="text-xs md:text-sm text-gray-500 font-medium">Explore Projects</span>
             <div className="w-5 h-8 border border-gray-300 rounded-full flex justify-center p-1">
               <motion.div
                 className="w-1 h-2 bg-gray-400 rounded-full"

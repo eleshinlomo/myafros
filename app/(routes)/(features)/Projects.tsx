@@ -24,17 +24,39 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'AI Video Storyboard Platform',
+    title: 'AI Assisted Content Creation & Data Analysis',
     description: 'AI-powered video ads and storyboard generation',
-    longDescription: `Enterprise-grade platform for creating video advertisements and storyboards using AI. Accelerates content creation with automated editing, fast storyboarding, and professional video production.`,
+    longDescription: `Data analysis and nterprise-grade platform for creating video advertisements and storyboards using AI. Accelerates content creation with automated editing, fast storyboarding, and professional video production.`,
     technologies: ['Python/Django', 'Next.js/TypeScript', 'OpenAI API', 'FFmpeg', 'MongoDB', 'Redis', 'Docker'],
     githubUrl: { url: 'https://github.com/eleshinlomo', private: true },
     liveUrl: 'https://ai.fixupe.com',
     category: 'ai',
     featured: true
   },
+  {
+    id: 2,
+    title: 'Document & Product Management System',
+    description: 'PDF editing & AI-driven PRD, feature, and mock-up creator',
+    longDescription: `Comprehensive product management platform that uses LLMs to create product requirements documents, features, and mock-ups. Includes automated extraction and sentiment analysis based on project profiles.`,
+    technologies: ['Node.js', 'OpenAI API', 'React', 'REST API', 'MongoDB', 'AWS'],
+    githubUrl: { url: 'https://github.com/eleshinlomo', private: true },
+    liveUrl: 'https://document.fixupe.com/',
+    category: 'data',
+    featured: true
+  },
     {
-    id: 1,
+    id: 3,
+    title: 'Marketplace',
+    description: 'Lifestyle app',
+    longDescription: 'short-stay hotels & apartaments, restaurants, events, and live chats',
+    technologies: ['Python', 'Scikit-learn', 'Node.js', 'MongoDB', 'AWS', 'S3', 'SES'],
+    githubUrl: { url: 'https://github.com/eleshinlomo', private: true },
+    liveUrl: 'https://elteema.com',
+    category: 'marketplace',
+    featured: false
+  },
+    {
+    id: 4,
     title: 'Booking Manager',
     description: 'Appoinment booking platform',
     longDescription: `Fixupe Booking keeps clients and businesses in sync while helping businesses manage appointments, track earnings, and stay organized.`,
@@ -44,50 +66,30 @@ const projects: Project[] = [
     category: 'marketplace',
     featured: true
   },
-  {
-    id: 2,
-    title: 'AI Product Management System',
-    description: 'AI-driven PRD, feature, and mock-up creator',
-    longDescription: `Comprehensive product management platform that uses LLMs to create product requirements documents, features, and mock-ups. Includes automated extraction and sentiment analysis based on project profiles.`,
-    technologies: ['Node.js', 'OpenAI API', 'React', 'REST API', 'MongoDB', 'AWS'],
-    githubUrl: { url: 'https://github.com/eleshinlomo', private: true },
-    liveUrl: 'https://product.fixupe.com/',
-    category: 'data',
-    featured: true
-  },
-    {
-    id: 3,
-    title: 'Cloud logger',
-    description: 'Pm2, Nginx log monitor.',
-    longDescription: 'Monitor PM2 processes and NGINX logs from your cloud instances to quickly detect errors, performance issues, and downtime',
-    technologies: ['Next js', 'Scikit-learn', 'Node.js', 'MongoDB', 'AWS', 'S3', 'SES'],
-    githubUrl: { url: 'https://github.com/eleshinlomo/logger', private: true },
-    liveUrl: 'https://logger.fixupe.com',
-    category: 'logs',
-    featured: false
-  },
-    {
-    id: 4,
-    title: 'Event Manager',
-    description: 'Manage your events seamlessly',
-    longDescription: 'Post event gigs, find events close to you, and easily connect with vendors for seamless event planning.',
-    technologies: ['Next js', 'Django', 'Node.js', 'MongoDB', 'AWS', 'S3', 'SES'],
-    githubUrl: { url: 'https://github.com/eleshinlomo', private: true },
-    liveUrl: 'https://event.fixupe.com',
-    category: 'marketplace',
-    featured: false
-  },
-  {
-    id: 5,
-    title: 'E-commerce Recommendation Engine',
-    description: 'Personalized shopping platform with AI recommendations',
-    longDescription: 'Advanced e-commerce marketplace with AI-powered recommendation system using collaborative filtering. Integrates with regional trending topics to provide personalized shopping experiences.',
-    technologies: ['Python', 'Scikit-learn', 'Node.js', 'MongoDB', 'AWS', 'S3', 'SES'],
-    githubUrl: { url: 'https://github.com/eleshinlomo', private: true },
-    liveUrl: 'https://elteema.com',
-    category: 'marketplace',
-    featured: false
-  },
+  
+  //   {
+  //   id: 3,
+  //   title: 'Cloud logger',
+  //   description: 'Pm2, Nginx log monitor.',
+  //   longDescription: 'Monitor PM2 processes and NGINX logs from your cloud instances to quickly detect errors, performance issues, and downtime',
+  //   technologies: ['Next js', 'Scikit-learn', 'Node.js', 'MongoDB', 'AWS', 'S3', 'SES'],
+  //   githubUrl: { url: 'https://github.com/eleshinlomo/logger', private: true },
+  //   liveUrl: 'https://logger.fixupe.com',
+  //   category: 'logs',
+  //   featured: false
+  // },
+  //   {
+  //   id: 4,
+  //   title: 'Event Manager',
+  //   description: 'Manage your events seamlessly',
+  //   longDescription: 'Post event gigs, find events close to you, and easily connect with vendors for seamless event planning.',
+  //   technologies: ['Next js', 'Django', 'Node.js', 'MongoDB', 'AWS', 'S3', 'SES'],
+  //   githubUrl: { url: 'https://github.com/eleshinlomo', private: true },
+  //   liveUrl: 'https://event.fixupe.com',
+  //   category: 'marketplace',
+  //   featured: false
+  // },
+
 ];
 
 const categoryConfig = {
@@ -250,7 +252,7 @@ export default function Projects() {
                           className="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200 group"
                           whileHover={{ x: 5 }}
                         >
-                          <span>Request Access</span>
+                          <span>Request Access to Github</span>
                           <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                         </motion.a>
                       </div>
