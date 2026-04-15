@@ -104,7 +104,6 @@ const Footer = ()=>{
           {/* 5th block */}
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-3">
             <h6 className="text-white font-medium mb-2">Newsletter</h6>
-            <p className="text-sm text-white/80 mb-4">Get my latest projects and see what I am working on.</p>
             
                 <NewsletterButton btnText='Subscribe' />
           </div>
