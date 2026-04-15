@@ -1,7 +1,7 @@
 'use client';
 
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
-import { chatbot } from '../../../../api/ai';
+import { chatbot } from '../../../../api/AI';
 
 interface Message {
   id: string;
