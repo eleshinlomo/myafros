@@ -3,7 +3,8 @@ import {useState, useEffect} from 'react'
 import { BASE_URL } from '@/components/urls'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { createWaitList } from '../../api/waitlist'
+import { addMemberToNewsLetter } from '@/api/Newsletter'
+
 
 interface NewsletterProps {
   btnText: string;
@@ -26,7 +27,7 @@ const HandleEmailWaitlist = async (e:any)=>{
       email
     }
      console.log(BASE_URL)
-    const response: any = await createWaitList(payload)
+    const response: any = await addMemberToNewsLetter(payload)
   
     if(response.ok){
   

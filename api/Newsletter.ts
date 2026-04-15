@@ -1,10 +1,10 @@
-import { CreateWaitListTypes } from "@/types/WaitlistTypes"
+import { AddMemberToNewsLetterTypes} from "@/types/NewsletterTypes"
 
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
 
-export const createWaitList = async (payload: CreateWaitListTypes)=>{
+export const addMemberToNewsLetter = async (payload: AddMemberToNewsLetterTypes)=>{
     const response = await fetch(`${BASE_URL}/newsletters/addmember`, {
         method: 'POST',
         mode: 'cors',
