@@ -23,8 +23,8 @@ export default function About() {
     },
     {
       icon: Database,
-      title: 'Data Engineering',
-      description: 'Designing robust data pipelines and database architectures',
+      title: 'AI Assisted Tooling',
+      description: 'AI-assisted tooling (Claude, ChatGPT, GitHub Copilot) to accelerate software development and debugging',
     },
     {
       icon: Cloud,

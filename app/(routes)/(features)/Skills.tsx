@@ -5,10 +5,10 @@ import { useInView } from 'react-intersection-observer';
 
 const skills = {
   
-  'Frontend': ['TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Three.js', 'CSS', 'MUI', 'Chakra-UI', 'Shadcn-UI'],
-  'Backend': ['Python', 'Node.js', 'FastAPI', 'Express', 'REST', 'DJANGO', 'FLASK'],
-  'Data & Cloud': ['PostgreSQL', 'MongoDB', 'AWS', 'Docker', 'MySQL', 'Vercel', 'Railway','Digital Ocean'],
-  'Tools': ['Git', 'Gitlab', 'Linux', 'Jupyter', 'VS Code', 'Figma'],
+  'Frontend': ['TypeScript', 'Javascript', 'React', 'React Native', 'Next.js', 'Tailwind CSS', 'Three.js', 'CSS', 'MUI', 'Chakra-UI', 'Shadcn-UI'],
+  'Backend': ['Python', 'Node.js', 'FastAPI', 'Web Sockets', 'Express', 'REST', 'DJANGO', 'FLASK'],
+  'Data & Cloud': ['PostgreSQL', 'MongoDB', 'AWS', 'GCP', 'Docker', 'MySQL', 'Vercel', 'Railway','Digital Ocean'],
+  'Tools': ['Git', 'Co-Pilot', 'Claude', 'Codex', 'Linux', 'Jupyter', 'VS Code', 'Figma'],
   'APIs': ['Airtable', 'Freshservice', 'OpenAI', 'GoogleAPIs','MITRE', 'Paypal', 'Paystack','Stripe', 'Langhchain'],
   'AI/ML': ['TensorFlow', 'PyTorch', 'Scikit-learn', 'OpenCV', 'NLTK', 'Hugging Face'],
 };

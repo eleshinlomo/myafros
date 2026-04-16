@@ -46,14 +46,14 @@ const projects: Project[] = [
   },
     {
     id: 3,
-    title: 'Marketplace',
+    title: 'Marketplace(Mobile & Web)',
     description: 'Lifestyle app',
     longDescription: 'short-stay hotels & apartaments, restaurants, events, and live chats',
     technologies: ['Python', 'Scikit-learn', 'Node.js', 'MongoDB', 'AWS', 'S3', 'SES'],
     githubUrl: { url: 'https://github.com/eleshinlomo', private: true },
     liveUrl: 'https://elteema.com',
     category: 'marketplace',
-    featured: false
+    featured: true
   },
     {
     id: 4,
